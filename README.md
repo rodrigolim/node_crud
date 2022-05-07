@@ -1,4 +1,4 @@
-# Estudos para praticar a utilização do TypesORM
+# Estudos para praticar a utilização do TypeORM
 CRUD com Node.JS, Express, TypeORM e PostgreSQL
 
 ## Pré-requisitos
