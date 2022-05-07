@@ -2,23 +2,25 @@
 CRUD com Node.JS, Express, TypeORM e PostgreSQL
 
 ## Pré-requisitos
-NPM, PostgreSQL
+NPM, YARN, PostgreSQL
 
 ## Configurar as Váriaveis de Ambiente conforme sua instalação do PostgresSQL
+```
 PGHOST = localhost
 PGUSER = postgres
 PGPASSWORD = admin
 PGDATABASE = node_crud
 PORT = 3000
+```
 
 ## Instalação
 - via CMD, localize a pasta root do projeto e execute:
 ```
-npm install
+yarn install
 ```
 - após, na pasta root do projeto, inicie um servidor local, por exemplo:
 ```
-npm run dev
+yarn dev
 ```
 
 - no browser, abra o endereço local na porta configurada no arquivo index.js
