@@ -2,7 +2,7 @@
 CRUD com Node.JS, Express, TypeORM e PostgreSQL
 
 ## Pré-requisitos
-NPM, PostGresSQL
+NPM, PostgreSQL
 
 ## Configurar as Váriaveis de Ambiente conforme sua instalação do PostgresSQL
 PGHOST = localhost
