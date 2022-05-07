@@ -2,18 +2,34 @@
   "name": "node_crud",
   "version": "1.0.0",
   "description": "CRUD com Node.JS, Express, TypeORM e PostgreSQL",
-  "main": "src/server.js",
+  "main": "index.js",
+  "repository": "git@github.com:rodrigolim/node_crud.git",
+  "author": "Rodrigo de Lima Cunha <rodrigo908@hotmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Rodrigo de Lima Cunha",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.1"
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev --transpile-only src/server.ts",
+    "typeorm": "typeorm-ts-node-esm",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d src/databases/migrations/*.ts",
+    "schema:sync": "npm run typeorm schema:sync -- -d src/databases/migrations/*.ts",
+    "migration:show": "npm run typeorm migration:show -- -d src/databases/migrations/*.ts",
+    "migration:generate": "npm run typeorm migration:generate -- -d src/databases/migrations/*.ts",
+    "migration:create": "npm run typeorm migration:create"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "@types/express": "^4.17.13",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.6"
   }
 }
