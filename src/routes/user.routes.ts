@@ -1,12 +1,13 @@
 import {Router} from "express"
 import { createUser, getUsers, getUserById, updateUser, deleteUser } from "../controllers/user.controllers"
+import { ensureAuthenticated } from "../middlewares/ensureAuthenticated"
 
 const router = Router()
 
-router.get('/user', getUsers)
-router.get('/user/:id', getUserById)
-router.post('/user', createUser)
-router.put('/user/:id', updateUser)
-router.delete('/user/:id', deleteUser)
+router.get('/user', ensureAuthenticated, getUsers)
+router.get('/user/:id', ensureAuthenticated, getUserById)
+router.post('/user', createUser) //Não validar token
+router.put('/user/:id', ensureAuthenticated, updateUser)
+router.delete('/user/:id', ensureAuthenticated, deleteUser)
 
 export default router

@@ -1,13 +1,17 @@
 import {Request,Response} from "express"
+import { hash } from "bcryptjs"
 import { User } from "../entities/User"
 
 export const createUser = async (req: Request, res: Response) => {
     try {
         const { name, email, password, active } = req.body;    
+        
+        const passwordHash = await hash(password, 8)
+        
         const user = new User()
         user.name = name;
         user.email = email;
-        user.password = password;
+        user.password = passwordHash;
         user.active = active;
         
         await user.save()
@@ -54,12 +58,14 @@ export const updateUser = async (req: Request, res: Response) => {
     
         if (!user) return res.status(404).json({message: 'User does not exists'})
     
+        const passwordHash = await hash(password, 8)
+
         user.name = name;
         user.email = email;
-        user.password = password;
+        user.password = passwordHash;
         user.active = active;
     
-        await User.update({id: parseInt(req.params.id)}, req.body)
+        await User.update({id: parseInt(req.params.id)}, user)
     
         return res.status(200).json(user) 
     

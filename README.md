@@ -1,16 +1,17 @@
 # Estudos para praticar a utilização do TypeORM
-CRUD com Node.JS, Express, TypeORM e PostgreSQL
+CRUD com Node.JS, express, typeORM, bcryptjs, jsonwebtoken e PostgreSQL
 
 ## Pré-requisitos
 NPM, YARN, PostgreSQL
 
 ## Configurar as Váriaveis de Ambiente conforme sua instalação do PostgresSQL
 ```
-PGHOST = localhost
-PGUSER = postgres
-PGPASSWORD = admin
-PGDATABASE = node_crud
+PGHOST = 
+PGUSER = 
+PGPASSWORD = 
+PGDATABASE = 
 PORT = 3000
+SECRET= 
 ```
 
 ## Instalação

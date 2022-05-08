@@ -1,6 +1,6 @@
 import {Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BaseEntity } from "typeorm";
 
-@Entity()
+@Entity("users")
 export class User extends BaseEntity{
 
     @PrimaryGeneratedColumn()
@@ -9,10 +9,10 @@ export class User extends BaseEntity{
     @Column({type: "varchar", length: 100, nullable: false})
     name: string;
 
-    @Column({type: "varchar", length: 50, unique: true, nullable: false})
+    @Column({type: "varchar", length: 100, unique: true, nullable: false})
     email: string;
 
-    @Column({type: "varchar", length: 20, unique: false, nullable: true})
+    @Column({type: "varchar", length: 100, unique: false, nullable: true})
     password: string;
 
     @Column({default: true})
