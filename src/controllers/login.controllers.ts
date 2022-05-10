@@ -6,7 +6,7 @@ import 'dotenv/config'
 
 export const authenticator = async (req: Request, res: Response) => {
     try {
-        const { name, email, password } = req.body;         
+        const { email, password } = req.body;         
            
         const user = await User.findOneBy({email: email})
     

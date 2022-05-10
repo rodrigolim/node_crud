@@ -1,5 +1,5 @@
 # Estudos para praticar a utilização do TypeORM
-CRUD com Node.JS, ts-node, express, typescript, typeORM, bcryptjs, jsonwebtoken e PostgreSQL
+CRUD com Node.JS, ts-node, express, typescript, typeORM, bcryptjs, jsonwebtoken, swagger e PostgreSQL
 
 ## Pré-requisitos
 NPM, YARN, PostgreSQL

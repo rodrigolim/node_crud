@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Crud App",
+    "description": "CRUD com Node.JS, ts-node, express, typescript, typeORM, bcryptjs, jsonwebtoken, swagger e PostgreSQL",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "name": "API Support",
+      "email": "teste@teste.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers":[
+    {
+      "url": "http://localhost:3000",
+      "description": "Api de teste"
+    },
+    {
+      "url": "http://rodrigolimacunha.com.br:3000",
+      "description": "Api de produção"
+    }
+  ],
+  "paths":{
+    "/login":{
+      "post":{
+        "summary": "Login",
+        "description": "Essa rota será responsável pela geração do TOKEN de acesso",
+        "tags":["Login"],
+        "security": [{"bearerAuth": [] }] ,
+        "requestBody": {
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses":{
+          "200":{
+            "description":"OK",
+            "content": {
+              "application/json":{
+                "schema":{
+                  "type":"object",
+                  "$ref": "#/components/schemas/Authorization" 
+                }
+              }
+            } 
+          },
+          "404":{
+            "description":"User or password incorrect"
+          },
+          "500":{
+            "description":"Erro interno"
+          }
+        }
+      }
+    }
+  },
+  "components":{
+    "schemas":{
+      "Login":{
+        "type":"object",
+        "properties":{
+          "email":{
+            "type": "string"
+          },
+          "password":{
+            "type": "string"
+          }
+        }
+      },
+      "Authorization":{
+        "type":"object",
+        "properties":{
+          "Authorization":{
+            "type":"string"
+          }
+        }
+      }
+    },
+    "securitySchemes":{
+      "bearerAuth":{
+        "type":"http",
+        "scheme":"bearer",
+        "bearerFormat":"JWT"
+      }
+    }
+  }
+
+}
